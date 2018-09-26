@@ -27,14 +27,6 @@ view: orders_pdt {
     type: string
     sql: ${TABLE}.status ;;
 
-
-
-
-    html: {% if value == "" %}
-        <div style="color: black; background-color: red; font-size:100%; text-align:center">{{ rendered_value }}</div>
-        {% else %}
-        {{ rendered_value }}
-        {% endif %} ;;
   }
 
   parameter: statusparam {
