@@ -3,6 +3,7 @@ view: pdt {
       sql: SELECT 'woohoo 😘' as kisses, id, sum(id) as sum
       from orders
       group by 1, 2;;
+    sql_trigger_value: SELECT MINUTE(CURTIME()) ;;
   }
 
 dimension: emoji {
