@@ -21,6 +21,22 @@ view: orders {
     sql: ${TABLE}.created_at ;;
   }
 
+
+  dimension: full_TAT {
+    description: "Time from final P&M submission to Design Sent"
+    type: number
+    sql: datediff(hour, ${users.created_time}, ${created_time})/24 ;;
+    value_format: "0.00"
+  }
+  dimension: full_TAT_buckets {
+    description: "Time buckets from final P&M submission to Design Sent"
+    type: tier
+    tiers: [0,5,10,15]
+    style: classic
+    sql: datediff(hour, ${users.created_time}, ${created_time})/24 ;;
+    value_format: "0"
+  }
+
   dimension: order_amount {
     type: number
     sql: ${TABLE}.order_amount ;;

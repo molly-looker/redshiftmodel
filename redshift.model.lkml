@@ -26,16 +26,24 @@ explore: order_items {
   }
 }
 
-explore: orders {
+explore: orders1 {
+  from:  orders
   join: users {
     type: left_outer
-    sql_on: ${orders.user_id} = ${users.id} ;;
+    sql_on: ${orders1.user_id} = ${users.id} ;;
     relationship: many_to_one
   }
 }
 
-explore: users {}
+explore: users {
+
+}
 
 explore: pdt {}
 
 explore: orders_pdt {}
+
+
+explore: orders {
+  fields: [ALL_FIELDS*, -orders.full_TAT, -orders.full_TAT_buckets]
+}
